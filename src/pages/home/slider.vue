@@ -1,21 +1,27 @@
 <template>
-	<swiper  class="banner">
+	<swiper  class="banner index-banner" :options="swiperOption">
     <!-- slides -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
+    <swiper-slide v-for="item in sliders" :key="item.id">
+    	<img :src="item.imgUrl" alt="" class="banner-img" />
+    </swiper-slide>
+   		
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
-    
   </swiper>
 </template>
 <script>
 	export default {
 		name: 'index-slider',
+		 data() {
+	      return {
+	        swiperOption: {
+	         pagination: '.swiper-pagination'
+	        }
+	      }
+	   },
+		props: {
+			sliders: Array
+		},
 		mounted () {
 			
 		}
@@ -29,4 +35,11 @@
 		overflow: hidden
 		padding-bottom: 31.25%
 		background: blue
+		.banner-img
+			width: 100%
+</style>
+<style type="text/css" lang="stylus">
+	.index-banner
+	  .swiper-pagination-bullet
+	     background:#fff
 </style>

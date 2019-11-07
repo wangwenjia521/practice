@@ -1,7 +1,7 @@
 <template>
 <div id="" class="header">
 <index-header></index-header>
-<slider></slider>
+<slider :sliders = "sliders"></slider>
 </div>
 </template>
 
@@ -15,13 +15,21 @@
 			IndexHeader,
 			Slider
 		},
+		data () {
+			return {
+				sliders: []
+			}
+		},
 		methods: {
 			getIndexData () {
-//			   axios.get('/api/index.json')
-//			  .then(this.handleDataSucc.bind(this)).catch(this.handleDataError.bind(this))
+			   axios.get('/api/index.json')
+			  .then(this.handleDataSucc.bind(this)).catch(this.handleDataError.bind(this))
 			},
-			handleDataSucc (response) {
-				console.log(response)
+			handleDataSucc (res) {
+				res = res ? res.data: null;
+				if(res && res.ret && res.data) {
+					 this.sliders = res.data.silders;
+				}
 			},
 			handleDataError (err) {
 				console.log(err)
