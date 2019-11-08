@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Fastclik from 'fastclick'
+import store from '@/store/'
 //移动端1像素边框  和set stylus 公用的文件
 import '@/assets/styles/base/reset.css'
 import '@/assets/styles/base/border.css'
@@ -20,6 +21,7 @@ Fastclik.attach(document.body)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

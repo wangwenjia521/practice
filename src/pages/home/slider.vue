@@ -34,12 +34,11 @@
 		height: 0
 		overflow: hidden
 		padding-bottom: 31.25%
-		background: blue
 		.banner-img
 			width: 100%
 </style>
 <style type="text/css" lang="stylus">
-	.index-banner
-	  .swiper-pagination-bullet
-	     background:#fff
+.index-banner
+	.swiper-pagination-bullet
+		background:#fff
 </style>

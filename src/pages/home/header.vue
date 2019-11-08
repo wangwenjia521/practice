@@ -9,13 +9,18 @@
 				请输入城市/景点/游玩主题
 			</div>
 		</div>
-		<div class="city ">北京 </div>
+		<div class="city "><!--{{this.$store.state.city}} --> {{city}}
+		</div>
 	</div>
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
-		name: 'index-header'
+		name: 'index-header',
+		computed: {
+			...mapState (['city'])
+		}	
 	}
 </script>
 
