@@ -1,10 +1,12 @@
 <template>
 	<swiper  class="icons index-icons" :options="swiperOption">
     <!-- slides -->
-    <swiper-slide v-for="(page, index) in pages" :key="index">
-    	<div>
-    		<div v-for="item in page" :key="item.id">
-    			<img :src="item.imgUrl" alt="" />
+    <swiper-slide  class="icon-page"
+    	v-for="(page, index) in pages" :key="index">
+    	<div class="icon-list">
+    		<div v-for="item in page" :key="item.id" class="icon-item">
+    			<img  class="icon-img" :src="item.imgUrl" alt="" />
+    			<p class="icon-title"> {{item.title}}</p>
     		</div>
     	</div>	
     </swiper-slide>
@@ -51,7 +53,26 @@
 
 <style scoped lang="stylus">
 	@import  '../../assets/styles/common/varibles.styl'
-	
+	.icons
+	   padding-bottom: 0.6rem
+	.icon-page
+		overflow: hidden
+		height: 0
+		padding-bottom: 2.8rem
+		.icon-list
+			display:flex
+			flex-wrap: wrap
+			.icon-item
+				width: 25%
+				padding-top: .3rem
+				text-align: center
+				.icon-img
+					width: .66rem
+					height:.66rem
+				.icon-title
+					margin-top:	.16em
+					font-size: .28rem
+					color: #777
 </style>
 <style type="text/css" lang="stylus">
 @import  '../../assets/styles/common/varibles.styl'
